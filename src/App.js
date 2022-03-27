@@ -1,6 +1,8 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Card from './component/card';
+import datakedua from './datakedua.js';
+
 const data = {
   album: {
     album_type: "album",
@@ -82,10 +84,14 @@ const data = {
 function App() {
   return (
     <div className="App">
-      <Card images={data.album.images[1].url} title={data.album.name} artists={data.album.artists[0].name}/>
+      {datakedua.map((songs, index)=>(
+        <Card key={index} images={songs.album.images[1].url} title={songs.album.name} artists={songs.album.artists[0].name}/>
+      ))}
+      {/* // <Card images={data.album.images[1].url} title={data.album.name} artists={data.album.artists[0].name}/> */}
     </div>
     
   );
-}
+};
+
 
 export default App;
